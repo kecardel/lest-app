@@ -2,10 +2,13 @@ package com.example.lest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -45,6 +48,37 @@ public class MainActivity extends AppCompatActivity {
         meds = (Button) findViewById(R.id.medList);
         summary = (Button) findViewById(R.id.summary);
         changeDate = (ImageButton) findViewById(R.id.changeDate);
+        today = (TextView) findViewById(R.id.today);
+        changeDate.setOnClickListener(new ChangeDateClickListener());
+    }
+
+    private class ChangeDateClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Log.d("ada", "onClick: changeDate");
+            // 1. create a DatePickerDialog
+            DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                    new CalendarListener(),
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH));
+            // 1a. when creating DatePickerDialog, pass it new DatePickerDialog.OnDateSetListener()
+            // 2. call show() on the DatePickerDialog instance
+            datePickerDialog.show();
+        }
+    }
+
+    private class CalendarListener implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            Calendar updatedCalendar = Calendar.getInstance();
+            updatedCalendar.set(Calendar.YEAR, year);
+            updatedCalendar.set(Calendar.MONTH, month);
+            updatedCalendar.set(Calendar.DAY_OF_MONTH, day);
+
+            today.setText(dateFormat.format(updatedCalendar.getTime()));
+        }
     }
 //
 //     Called when the user clicks the calendar button
