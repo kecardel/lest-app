@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button meds;
     private Button summary;
     private ImageButton changeDate;
+    private Button treatment;
 
     private TextView today;
     private Calendar calendar;
@@ -49,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
         summary = (Button) findViewById(R.id.summary);
         changeDate = (ImageButton) findViewById(R.id.changeDate);
         today = (TextView) findViewById(R.id.today);
+        treatment = (Button) findViewById(R.id.treatmentPlan);
         changeDate.setOnClickListener(new ChangeDateClickListener());
+        symptom.setOnClickListener(new LogSymptomListener());
+        treatment.setOnClickListener(new TreatmentPlanListener());
     }
 
     private class ChangeDateClickListener implements View.OnClickListener {
@@ -80,6 +84,34 @@ public class MainActivity extends AppCompatActivity {
             today.setText(dateFormat.format(updatedCalendar.getTime()));
         }
     }
+
+    private class LogSymptomListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            Log.d("ada", "onClick: symptom home page");
+            Intent intent = new Intent(MainActivity.this, SymptomHomeActivity.class);
+            TextView selectedDate = (TextView) findViewById(R.id.today);
+            String date = selectedDate.getText().toString();
+            intent.putExtra(EXTRA_DATE, date);
+            startActivity(intent);
+        }
+    }
+
+    private class TreatmentPlanListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            Log.d("ada", "onClick: tp home page");
+            Intent intent = new Intent(MainActivity.this, TreatmentPlanHomeActivity.class);
+            TextView selectedDate = (TextView) findViewById(R.id.today);
+            String date = selectedDate.getText().toString();
+            intent.putExtra(EXTRA_DATE, date);
+            startActivity(intent);
+        }
+    }
+
+
 //
 //     Called when the user clicks the calendar button
 //    public void changeDate(View view) {
