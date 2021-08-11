@@ -112,13 +112,12 @@
                             android:id="@+id/heading"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GeeksforGeeks"
-                            android:textColor="#006600"
-                            android:textSize="25dp"
+                            android:text="Taxol/Carboplatin"
+                            android:textSize="17dp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/fixed_layout"
                             app:layout_constraintEnd_toEndOf="@+id/fixed_layout"
-                            app:layout_constraintHorizontal_bias="0.926"
+                            app:layout_constraintHorizontal_bias="0.1"
                             app:layout_constraintStart_toStartOf="@+id/fixed_layout"
                             app:layout_constraintTop_toTopOf="@+id/fixed_layout"
                             app:layout_constraintVertical_bias="0.198" />
@@ -129,11 +128,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="58dp"
-                            android:text="List of subjects"
-                            android:textSize="20dp"
+                            android:text="Details"
+                            android:textSize="15dp"
                             app:layout_constraintBottom_toBottomOf="@+id/fixed_layout"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.878"
+                            app:layout_constraintHorizontal_bias="0.1"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/heading"
                             app:layout_constraintVertical_bias="0.0" />
@@ -143,10 +142,10 @@
                             android:id="@+id/arrow_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_expand_more_24dp"
+                            android:src="@drawable/ic_expand_more"
                             app:layout_constraintBottom_toBottomOf="@id/fixed_layout"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.802"
+                            app:layout_constraintHorizontal_bias="0.1"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/list_of_subjects"
                             app:layout_constraintVertical_bias="0.0" />
@@ -179,7 +178,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="20dp"
-                                android:text="Database Management"
+                                android:text="Current Cycle: "
                                 android:textColor="#000000"
                                 android:textSize="20dp" />
                         </LinearLayout>
@@ -195,7 +194,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="20dp"
-                                android:text="Data Structures"
+                                android:text="Dose Details"
                                 android:textColor="#000000"
                                 android:textSize="20dp" />
                         </LinearLayout>
@@ -211,7 +210,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginTop="20dp"
-                                android:text="Operating Systems"
+                                android:text="Next Admin"
                                 android:textColor="#000000"
                                 android:textSize="20dp" />
                         </LinearLayout>

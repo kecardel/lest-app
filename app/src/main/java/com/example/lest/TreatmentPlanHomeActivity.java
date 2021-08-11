@@ -34,7 +34,7 @@ public class TreatmentPlanHomeActivity extends AppCompatActivity {
                 else {
                     TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                     hiddenView.setVisibility(View.VISIBLE);
-                    arrow.setImageResource(R.drawable.ic_baseline_expand_less_24);
+                    arrow.setImageResource(R.drawable.ic_expand_less);
                 }
             }
         });
