@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Plan"
+        android:title="Plan"
+        android:icon="@drawable/ic_edit_note_black_24dp"/>
+    <item
+        android:id="@+id/Log"
+        android:title="Log"
+        android:icon="@drawable/ic_feed_black_24dp"/>
+    <item
+        android:id="@+id/Symptom"
+        android:title="Symptom"
+        android:icon="@drawable/ic_offline_bolt_black_24dp"/>
+</menu>

@@ -5,13 +5,20 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_expand_less_24.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/drawable/ic_baseline_expand_more_24.xml" value="0.17592592592592593" />
+        <entry key="app/src/main/res/drawable/ic_feed_black_24dp.xml" value="0.24074074074074073" />
         <entry key="app/src/main/res/layout-sw600dp/fragment_logsymptomsactivity_detail.xml" value="0.165234375" />
         <entry key="app/src/main/res/layout/activity_display_calendar.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_treatment_plan_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/bottom_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_treatment_plan_menu.xml" value="0.2203125" />
+        <entry key="app/src/main/res/layout/fragment_algorithm.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_log.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_logsymptomsactivity_detail.xml" value="0.2203125" />
+        <entry key="app/src/main/res/layout/fragment_plan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_symptom.xml" value="0.1" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

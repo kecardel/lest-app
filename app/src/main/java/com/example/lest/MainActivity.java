@@ -15,6 +15,13 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
     // Define key for date intent's extra using a public constant
     public final static String EXTRA_DATE = "com.example.lest.DATE";
@@ -36,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // bottom nav bar
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        // upon app open, first fragment shown is Log
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LogFragment()).commit();
+
 
         TextView dateTimeDisplay = (TextView) findViewById(R.id.today);
         calendar = Calendar.getInstance();
@@ -45,16 +58,42 @@ public class MainActivity extends AppCompatActivity {
         dateTimeDisplay.setText(date);
 
         // 2. Initialize widget variables by connecting them to their IDs.
-        symptom = (Button) findViewById(R.id.logSymptoms);
-        meds = (Button) findViewById(R.id.medList);
-        summary = (Button) findViewById(R.id.summary);
+
         changeDate = (ImageButton) findViewById(R.id.changeDate);
         today = (TextView) findViewById(R.id.today);
-        treatment = (Button) findViewById(R.id.treatmentPlan);
         changeDate.setOnClickListener(new ChangeDateClickListener());
-        symptom.setOnClickListener(new LogSymptomListener());
-        treatment.setOnClickListener(new TreatmentPlanListener());
+//        symptom.setOnClickListener(new LogSymptomListener());
+//        treatment.setOnClickListener(new TreatmentPlanListener());
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            // By using switch we can easily get
+            // the selected fragment
+            // by using there id.
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+                case R.id.Plan:
+                    selectedFragment = new PlanFragment();
+                    break;
+                case R.id.Log:
+                    selectedFragment = new LogFragment();
+                    break;
+                case R.id.Symptom:
+                    selectedFragment = new SymptomFragment();
+                    break;
+            }
+            // It will help to replace the
+            // one fragment to other.
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, selectedFragment)
+                    .commit();
+            return true;
+        }
+    };
+
 
     private class ChangeDateClickListener implements View.OnClickListener {
         @Override
