@@ -12,9 +12,7 @@ public interface SymptomDao {
     @Insert
     public void insertSymptom(Symptom symptom);
 
-    @Query("SELECT * FROM symptoms")
+    @Query("SELECT * FROM symptoms ORDER BY date DESC")
     LiveData<List<Symptom>> getAll();
 
-    @Query("SELECT * FROM symptoms")
-    List<Symptom> getAllSynchronous();
 }

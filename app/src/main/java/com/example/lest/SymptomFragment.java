@@ -34,8 +34,6 @@ public class SymptomFragment extends Fragment {
     private ImageButton changeDate;
     private TextView today;
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat dateFormat;
-    private String date;
     private FloatingActionButton submitSymptom;
     private EditText newSymptom;
     private SymptomViewModel symptomViewModel;
@@ -65,7 +63,6 @@ public class SymptomFragment extends Fragment {
         submitSymptom = viewGroup.findViewById(R.id.submitSymptom);
         submitSymptom.setOnClickListener(new SymptomFragment.SubmitSymptomClickListener());
 
-        // Inflate the layout for this fragment
         return viewGroup;
     }
 
@@ -106,9 +103,6 @@ public class SymptomFragment extends Fragment {
         public void onClick(View view) {
             Log.d("ada", "onClick: submitSymptom");
             symptomViewModel.logSymptom();
-//            String strSymptom = newSymptom.getText().toString();
-
-//            SymptomDao.insertSymptom();
         }
     }
 
@@ -130,8 +124,3 @@ public class SymptomFragment extends Fragment {
         }
     }
 }
-
-// on click listener button id = submitSymptom
-// create an instance of Symptom class with symptomEntry & date
-// call SymptomDao.insertSymptom, pass instance of Symptom
-// print out results of getAll()

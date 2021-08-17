@@ -23,9 +23,8 @@ public class Symptom  {
 
     }
 
-//    private String mSymptom;
-//    public Symptom(@NonNull String symptom) {this.mSymptom = symptom;}
-    public String getSymptom(){return this.symptom;}
+
+    public String getSymptom(){return this.date + ": " + this.symptom;}
 
     @Override
     public String toString() {
