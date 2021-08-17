@@ -57,7 +57,7 @@ public class SymptomViewModel extends AndroidViewModel {
         mRepository.insert(addNewSymptom);
     }
 
-    LiveData<List<Symptom>> getAllSymptoms() { return mAllSymptoms; }
+    public LiveData<List<Symptom>> getAllSymptoms() { return mAllSymptoms; }
 
     public void insert(Symptom symptom) { mRepository.insert(symptom); }
 }

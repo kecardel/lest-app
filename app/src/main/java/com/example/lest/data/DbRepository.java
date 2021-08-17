@@ -1,6 +1,7 @@
 package com.example.lest.data;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -10,6 +11,7 @@ class DbRepository {
 
     private SymptomDao mSymptomDao;
     private LiveData<List<Symptom>> mAllSymptoms;
+
 
     DbRepository(Application application) {
         LestDatabase db = LestDatabase.getDatabase(application);
@@ -26,4 +28,6 @@ class DbRepository {
             mSymptomDao.insertSymptom(symptom);
         });
     }
+
+
 }

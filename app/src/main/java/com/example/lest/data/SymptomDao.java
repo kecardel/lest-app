@@ -14,4 +14,7 @@ public interface SymptomDao {
 
     @Query("SELECT * FROM symptoms")
     LiveData<List<Symptom>> getAll();
+
+    @Query("SELECT * FROM symptoms")
+    List<Symptom> getAllSynchronous();
 }
