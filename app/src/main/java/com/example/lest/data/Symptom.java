@@ -1,13 +1,14 @@
 package com.example.lest.data;
 
 
-import android.widget.EditText;
-
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+//import java.text.SimpleDateFormat;
+//import java.time.LocalDateTime;
+//import java.time.Period;
+//import java.time.format.DateTimeFormatter;
 
 @Entity(tableName="symptoms")
 public class Symptom  {
@@ -24,7 +25,9 @@ public class Symptom  {
     }
 
 
-    public String getSymptom(){return this.date + ": " + this.symptom;}
+    public Date getSymptomDate(){return this.date;}
+    public String getSymptomString(){return "\u2022 " + this.symptom;}
+
 
     @Override
     public String toString() {

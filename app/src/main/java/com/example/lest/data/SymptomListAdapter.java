@@ -20,7 +20,8 @@ public class SymptomListAdapter extends ListAdapter<Symptom, SymptomViewHolder> 
     @Override
     public void onBindViewHolder(SymptomViewHolder holder, int position) {
         Symptom current = getItem(position);
-        holder.bind(current.getSymptom());
+        holder.bind(current.getSymptomDate());
+        holder.bind(current.getSymptomString());
     }
 
     public static class SymptomDiff extends DiffUtil.ItemCallback<Symptom> {
@@ -32,7 +33,7 @@ public class SymptomListAdapter extends ListAdapter<Symptom, SymptomViewHolder> 
 
         @Override
         public boolean areContentsTheSame(@NonNull Symptom oldItem, @NonNull Symptom newItem) {
-            return oldItem.getSymptom().equals(newItem.getSymptom());
+            return oldItem.getSymptomDate().equals(newItem.getSymptomDate());
         }
     }
 }
