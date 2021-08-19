@@ -11,7 +11,6 @@ import com.example.lest.R;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Date;
 
 class SymptomViewHolder extends RecyclerView.ViewHolder {
     private final TextView symptomDateItemView;
@@ -24,9 +23,10 @@ class SymptomViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+
     public void bind(String symptom) { symptomItemView.setText(symptom); }
 
-    public void bind(LocalDate date) { symptomDateItemView.setText(date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG))); }
+    public void bind(LocalDate date) { symptomDateItemView.setText(date.getDayOfWeek() + ", " + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM))); }
 
     static SymptomViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
