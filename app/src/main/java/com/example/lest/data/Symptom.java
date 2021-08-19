@@ -3,29 +3,25 @@ package com.example.lest.data;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-import java.util.Date;
-//import java.text.SimpleDateFormat;
-//import java.time.LocalDateTime;
-//import java.time.Period;
-//import java.time.format.DateTimeFormatter;
 
 @Entity(tableName="symptoms")
 public class Symptom  {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    public Date date;
+    public LocalDate date;
     public String symptom;
 
-    public Symptom(Date date, String symptom) {
+    public Symptom(LocalDate date, String symptom) {
         this.date = date;
         this.symptom = symptom;
 
     }
 
-
-    public Date getSymptomDate(){return this.date;}
+    public LocalDate getSymptomDate(){return this.date;}
     public String getSymptomString(){return "\u2022 " + this.symptom;}
 
 
@@ -38,3 +34,4 @@ public class Symptom  {
                 '}';
     }
 }
+

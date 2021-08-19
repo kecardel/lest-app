@@ -8,8 +8,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class SymptomViewModel extends AndroidViewModel {
@@ -17,10 +18,14 @@ public class SymptomViewModel extends AndroidViewModel {
 
     private final LiveData<List<Symptom>> mAllSymptoms;
     private MutableLiveData<String> currentDateString = new MutableLiveData<>("");
-
     private String currentSymptom = "";
-    private Date currentDate = new Date();
+
+    public LocalDate getLocalDate() {
+        return LocalDate.now();
+    }
+    private LocalDate currentDate = getLocalDate();
     SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM d");
+
 
     public SymptomViewModel(Application application) {
         super(application);
@@ -42,10 +47,15 @@ public class SymptomViewModel extends AndroidViewModel {
         updatedCalendar.set(Calendar.YEAR, year);
         updatedCalendar.set(Calendar.MONTH, month);
         updatedCalendar.set(Calendar.DAY_OF_MONTH, day);
-        currentDate = updatedCalendar.getTime();
+
+        currentDate = getLocalDate( updatedCalendar );
         currentDateString.setValue(dateFormat.format(updatedCalendar.getTime()));
     }
 
+    private static java.time.LocalDate getLocalDate(Calendar calendar){
+
+        return  LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+    }
     public void onSymptomTextChanged(String symptom) {
         currentSymptom = symptom;
     }
@@ -60,5 +70,6 @@ public class SymptomViewModel extends AndroidViewModel {
     public LiveData<List<Symptom>> getAllSymptoms() { return mAllSymptoms; }
 
     public void insert(Symptom symptom) { mRepository.insert(symptom); }
+
 }
 

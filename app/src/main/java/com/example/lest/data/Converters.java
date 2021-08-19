@@ -3,17 +3,18 @@ package com.example.lest.data;
 import androidx.room.ProvidedTypeConverter;
 import androidx.room.TypeConverter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @ProvidedTypeConverter
 public class Converters {
     @TypeConverter
-    public static Date fromTimestamp(Long value) {
-        return value == null ? null : new Date(value);
+    public static LocalDate fromLocalDate(String value) {
+        return value == null ? null : LocalDate.parse(new String(value));
     }
     @TypeConverter
-    public static Long dateToTimestamp(Date date) {
-        return date == null ? null : date.getTime();
+    public static String dateToTimestamp(LocalDate date) {
+        return date == null ? null : String.valueOf(LocalDate.now());
     }
 
 }
