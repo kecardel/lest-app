@@ -54,7 +54,6 @@ public class SymptomFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_symptom, container, false);
         today = viewGroup.findViewById(R.id.today);
-
         newSymptom = viewGroup.findViewById(R.id.symptomEntry);
         newSymptom.addTextChangedListener(new SymptomTextWatcher());
         changeDate = viewGroup.findViewById(R.id.changeDate);
@@ -103,6 +102,8 @@ public class SymptomFragment extends Fragment {
         public void onClick(View view) {
             Log.d("ada", "onClick: submitSymptom");
             symptomViewModel.logSymptom();
+            newSymptom.setText(null);
+
         }
     }
 

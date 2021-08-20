@@ -2,14 +2,21 @@ package com.example.lest.data;
 
 import android.app.Application;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.lest.R;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.List;
 
@@ -49,6 +56,7 @@ public class SymptomViewModel extends AndroidViewModel {
         updatedCalendar.set(Calendar.DAY_OF_MONTH, day);
 
         currentDate = getLocalDate( updatedCalendar );
+        Log.d("kaylyn", "currentDate:" + currentDate);
         currentDateString.setValue(dateFormat.format(updatedCalendar.getTime()));
     }
 
@@ -62,7 +70,7 @@ public class SymptomViewModel extends AndroidViewModel {
 
     public void logSymptom() {
         // interact with DbRepository here
-        Symptom addNewSymptom = new Symptom(currentDate, currentSymptom);
+        Symptom addNewSymptom = new Symptom(currentDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)), currentSymptom);
         Log.d("kaylyn", "logSymptom:" + addNewSymptom);
         mRepository.insert(addNewSymptom);
     }

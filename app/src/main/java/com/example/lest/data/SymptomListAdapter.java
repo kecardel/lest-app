@@ -20,8 +20,7 @@ public class SymptomListAdapter extends ListAdapter<Symptom, SymptomViewHolder> 
     @Override
     public void onBindViewHolder(SymptomViewHolder holder, int position) {
         Symptom current = getItem(position);
-        holder.bind(current.getSymptomDate());
-        holder.bind(current.getSymptomString());
+        holder.bind(current.getSymptomDate(),(current.getSymptomString()));
     }
 
     public static class SymptomDiff extends DiffUtil.ItemCallback<Symptom> {

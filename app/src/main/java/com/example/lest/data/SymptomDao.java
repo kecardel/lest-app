@@ -10,7 +10,7 @@ import java.util.List;
 @Dao
 public interface SymptomDao {
     @Insert
-    public void insertSymptom(Symptom symptom);
+    void insertSymptom(Symptom symptom);
 
     @Query("SELECT * FROM symptoms ORDER BY date DESC")
     LiveData<List<Symptom>> getAll();

@@ -24,9 +24,8 @@ class SymptomViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public void bind(String symptom) { symptomItemView.setText(symptom); }
-
-    public void bind(LocalDate date) { symptomDateItemView.setText(date.getDayOfWeek() + ", " + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM))); }
+    public void bind(String symptom, String date) { symptomItemView.setText(date);
+        symptomDateItemView.setText(symptom); }
 
     static SymptomViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
